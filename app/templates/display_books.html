@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Here are the books we currently have:</h1>
+    {% for book in books %}
+    <div>
+        <p>Title: {{ book.title }}
+            <b>Author: {{ book.author }}</b>
+            {% if current_user.is_authenticated %}
+                <form>
+                <b><input type="submit" name="checkout_book" value="Checkout Book", method="POST"></b>
+                </form>
+            {% endif %}
+        </p>
+    </div>
+    {% endfor %}
+{% endblock %}
